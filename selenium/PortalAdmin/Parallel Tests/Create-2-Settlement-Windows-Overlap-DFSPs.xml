@@ -1,0 +1,24 @@
+<suite name="Portal Test Suite" verbose="1">
+    
+    <test name="Regression_Test_overlap_dfsps_settlement">
+        <classes preserve-order="true">
+        
+             <class name="Portal.TestCases.SettlementWindowsTests">
+              <methods>
+            
+             
+                
+               <include name ="FundsInOut_Create_2_Pending_Windows_OverlapingDFSP"/> 
+           
+                  
+                  
+              
+                
+                </methods>
+                </class>
+            
+                
+            
+        </classes>
+    </test>
+</suite>

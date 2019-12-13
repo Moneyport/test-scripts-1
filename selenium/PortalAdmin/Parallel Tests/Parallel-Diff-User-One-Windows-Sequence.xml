@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel-Same-user-one-Window-Sequence">
+
+<suites-files>
+<suite-file path="Create-1-Settlement-Windows.xml"></suite-file>
+<suite-file path="testngParallel3.xml"></suite-file>
+</suites-files>
+
+</suite> <!-- Suite4 -->

@@ -1,0 +1,23 @@
+<suite name="Portal Test Suite" verbose="1">
+   
+    <test name="Regression_Test_one_settlement_window">
+        <classes>
+        
+             <class name="Portal.TestCases.SettlementWindowsTests">
+              <methods>
+            
+             
+                 <include name ="FundsInOut_Create_To_Settled_Window"/>
+            
+                  
+                  
+              
+                
+                </methods>
+                </class>
+            
+                
+            
+        </classes>
+    </test>
+</suite>

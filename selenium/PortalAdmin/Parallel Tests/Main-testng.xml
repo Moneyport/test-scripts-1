@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main_Regression">
+ 
+    
+<suites-files>
+
+<suite-file path="Create-2-Settlement-Windows-Same-DFSPs.xml"  ></suite-file>
+<suite-file path="testngParallel6.xml" ></suite-file>
+
+
+<suite-file path="Create-2-Settlement-Windows-Overlap-DFSPs.xml"  ></suite-file>
+<suite-file path="testngParallel5.xml" ></suite-file>
+
+
+
+</suites-files>
+
+</suite> 
