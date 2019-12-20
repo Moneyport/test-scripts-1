@@ -1,0 +1,22 @@
+<suite name="Portal Test Suite" verbose="1">
+   
+    <test name="Regression_Test_diff_dfsps_settlement">
+        <classes>
+        
+             <class name="Portal.TestCases.SettlementWindowsTests">
+              <methods>
+            
+             
+             <include name ="FundsInOut_Create_2_Pending_Windows_Diff_DFSP"/>
+                  
+                  
+              
+                
+                </methods>
+                </class>
+            
+                
+            
+        </classes>
+    </test>
+</suite>

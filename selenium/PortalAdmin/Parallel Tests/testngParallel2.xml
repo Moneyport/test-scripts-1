@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="methods" name="Suite2">
+ <test thread-count="2" parallel="methods" name="TestParallel">
+		<classes>
+			<class name="Portal.TestCases.Funds_In_and_Out_Test_Different_Windows">
+				
+			</class>
+		</classes>
+	</test> <!-- Test2 -->
+</suite> <!-- Suite2 -->

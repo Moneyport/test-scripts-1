@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="methods" name="Suite5">
+  <test thread-count="2" parallel="methods" name="Test5">
+    <classes>
+      <class name="Portal.TestCases.Funds_In_and_Out_Test_Different_Windows_Overlaped"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
