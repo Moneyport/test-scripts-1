@@ -6,22 +6,7 @@
 
 	<test name="Regression_Test">
 		<classes>
-			<class name="Portal.TestCases.LoginTests">
-				<methods>
-					<include name="Test_Successful_Login_as_Admin" />
-					<include name="Test_Successful_Login_as_User" />
-					<include name="Test_Bad_Login_Invalid_User" />
-					<include name="Test_Bad_Login_Invalid_Password" />
-					<include name="Test_Bad_Login_Invalid_Password_Extra_blankspaces" /> 
-                                        include name="Test_Bad_Login_Blank_username" />
-					<include name="Test_Bad_Login_Blank_password" />
-					<include name="Test_Using_The_Back_Button_In_Web_Browser_After_Using_Log_out_button" />
-					<include name="Test_Successful_Login_as_Automated_Admin" />
-					<include name="Test_Successful_Login_as_Automated_Non_Admin" />
-                 
-				</methods>
-			</class>
-
+		
 		
 			<class name="Portal.TestCases.AdministrationTests" > 
              <methods> 
@@ -38,7 +23,7 @@
 					<include name="Test_Financial_Monitor_Check_Current_Window" />
 					<include name="Test_Financial_Monitor_Check_Window_History" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Funds_In" />
-				    <include name="Test_Financial_Monitor_Financial_Controls_Update_NDC_User" />
+				   
 					<include name="Test_Financial_Monitor_Financial_Controls_DFSP_stop_transfers" /> 
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC1" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC2" />
@@ -46,7 +31,7 @@
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC4" />
 					<include name="Test_Financial_Monitor_Check_Only_Active_Positions_Accounts" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Funds_Out" />
-					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC_as_User" />
+				
 					<include name="Test_Disable_Transactions_Hub" />
 					<include name="Test_funds_In_Decimal_Value" />
 					<include name="Test_funds_Out_Decimal_Value" />
@@ -76,26 +61,16 @@
 					<include name="Test_Accounts_Settlement" />
 					<include name="Test_Accounts_Position" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC_special_chars" />
-					<include name="Test_Financial_Monitor_Check_Financial_Controls_Funds_In_User" />
-					<include name="Test_Financial_Monitor_Check_Financial_Controls_Funds_Out_User" />  
+				 
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC_decimals" />
-					<include name="Test_Financial_Monitor_Check_Update_NDC_Auto_Admin" />
-					<include name="Test_Financial_Monitor_Check_Update_NDC_Auto_User" />
+				
 					<include name="Review_NDC_Management_participantsID" />
 				 
 			</methods>
 			</class>
 			 <class name="Portal.TestCases.SettlementWindowsTests">
 			  <methods> 
-			 <include name ="Test_Settlement_Window_paymentfile_EndtoEndID_Lenght"/>
-			  <include name ="Test_Settlement_Window_Check_PaymentFile_Not_Empty"/>
-			  <include name ="Test_Settlement_Window_Check_PaymentFile_Validate_Country_Code_payerfsp"/>
-			  <include name ="Test_Settlement_Window_Check_PaymentFile_Validate_Country_Code_testfsp3"/>
-			  <include name ="Test_Settlement_Window_Check_PaymentFile_Validate_Country_Code_testfsp2"/>
-			  <include name ="Test_Settlement_Window_Check_PaymentFile_Validate_Ustrd"/>
-			  <include name ="Test_Settlement_Window_paymentfile"/>
-			  <include name ="Test_Settlement_Window_Download_report312"/>
-			  <include name ="Test_Settlement_Window_Download_report644"/>
+			
 			  <include name ="Test_Settlement_Window_Settled"/>
 			  <include name ="Test_Settlement_Window_Close"/>
 			  <include name ="Test_Settlement_Window_Dates"/>
