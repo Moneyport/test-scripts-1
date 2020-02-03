@@ -45,7 +45,7 @@ public class PropertiesFile {
 	public static void Readproperties(){
 		Properties prop = new Properties();
 		env="dev";
-		os="linux";
+		os="mac";
 		
 		try {
 		 if(os.equals("windows")) {
