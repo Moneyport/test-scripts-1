@@ -1139,7 +1139,7 @@ public void verify_Outgoing_Transactions_CurrentWindow_TestFSP1() {
 			.findElement(By.xpath("//div[.//h4[text()='Outgoing Transactions']]/div/div[4]/div[1]/div"));
 
 	OutGOingCurrency = outgoingcurrency.getText();
-	Assert.assertEquals(OutGOingCurrency, "XOF");
+	Assert.assertEquals(OutGOingCurrency, "USD");
 
 	WebElement outgoingnooftransactions = driver
 			.findElement(By.xpath("//div[.//h4[text()='Outgoing Transactions']]/div/div[4]/div[2]/div"));
@@ -1171,7 +1171,7 @@ public void verify_Incoming_Transactions_CurrentWindow_TestFsp2() {
 
 	System.out.println(IncomingCurrency);
 	
-	Assert.assertEquals(IncomingCurrency, "XOF");
+	Assert.assertEquals(IncomingCurrency, "USD");
 
 	WebElement incomingnooftranscationstestfsp2 = driver
 			.findElement(By.xpath("//div[.//h4[text()='Incoming Transactions']]/div/div[4]/div[2]/div"));
@@ -1204,7 +1204,7 @@ public void verify_Incoming_Transactions_CurrentWindow_TestFsp4() {
 
 	System.out.println(IncomingCurrency);
 	
-	Assert.assertEquals(IncomingCurrency, "XOF");
+	Assert.assertEquals(IncomingCurrency, "USD");
 
 	WebElement incomingnooftranscationstestfsp4 = driver
 			.findElement(By.xpath("//div[.//h4[text()='Incoming Transactions']]/div/div[4]/div[2]/div"));
@@ -1235,7 +1235,7 @@ public void verify_Outgoing_Transactions_CurrentWindow_TestFsp3() {
 	
 	System.out.println(OutGOingCurrency);
 	
-	Assert.assertEquals(OutGOingCurrency, "XOF");
+	Assert.assertEquals(OutGOingCurrency, "USD");
 
 	WebElement outgoingnooftransactionstestfsp3 = driver
 			.findElement(By.xpath("//div[.//h4[text()='Outgoing Transactions']]/div/div[4]/div[2]/div"));
@@ -1271,7 +1271,7 @@ public void verify_Incoming_Transactions_CurrentWindow_TestFsp1() {
 
 	System.out.println(IncomingCurrency);
 	
-	Assert.assertEquals(IncomingCurrency, "XOF");
+	Assert.assertEquals(IncomingCurrency, "USD");
 
 	List <WebElement> incomingnooftranscationstestfsp1 = driver
 			.findElements(By.xpath("//div[.//h4[text()='Incoming Transactions']]/div/div[4]/div[2]/div"));
@@ -1301,7 +1301,7 @@ public void verify_Outgoing_Transactions_WindowHistory_TestFsp1() {
 
 	OutGOingCurrency = outgoingcurrencywindowhistory.getText();
 	
-	Assert.assertEquals(OutGOingCurrency, "XOF");
+	Assert.assertEquals(OutGOingCurrency, "USD");
 	
 	System.out.println(OutGOingCurrency);
 	
@@ -1335,7 +1335,7 @@ public void verify_Incoming_Transactions_WindowHistory_TestFsp2() {
 
 	System.out.println(IncomingCurrency);
 	
-	Assert.assertEquals(IncomingCurrency, "XOF");
+	Assert.assertEquals(IncomingCurrency, "USD");
 
 	WebElement incomingnooftranscationstestfsp2 = driver
 			.findElement(By.xpath("//div[2]//div[6]//div[2]//div[1]"));
@@ -1368,7 +1368,7 @@ public void verify_Incoming_Transactions_WindowHistory_TestFsp4() {
 
 	System.out.println(IncomingCurrency);
 	
-	Assert.assertEquals(IncomingCurrency, "XOF");
+	Assert.assertEquals(IncomingCurrency, "USD");
 
 	WebElement incomingnooftranscationstestfsp4 = driver
 			.findElement(By.xpath("//div[2]//div[5]//div[2]//div[1]"));
@@ -1400,7 +1400,7 @@ public void verify_Outgoing_Transactions_WindowHistory_TestFsp3() {
 	
 	System.out.println(OutGOingCurrency);
 	
-	Assert.assertEquals(OutGOingCurrency, "XOF");
+	Assert.assertEquals(OutGOingCurrency, "USD");
 
 	WebElement outgoingnooftransactionstestfsp3 = driver
 			.findElement(By.xpath("//div[.//h4[text()='Outgoing Transactions']]/div[1]/div[6]/div[2]/div[1]"));
@@ -1435,7 +1435,7 @@ public void verify_Incoming_Transactions_WindowHistory_TestFsp1() {
 
 	System.out.println(IncomingCurrency);
 	
-	Assert.assertEquals(IncomingCurrency, "XOF");
+	Assert.assertEquals(IncomingCurrency, "USD");
 
 	List <WebElement> incomingnooftranscationstestfsp1 = driver
 			.findElements(By.xpath("//div[.//h4[text()='Incoming Transactions']]/div/div[7]/div[2]/div"));
@@ -1466,7 +1466,7 @@ public void verify_FinancialControl_Ndc_Currency() {
 	
 	String ndccurrency = ndccurrencylabel.get(0).getText();
 	
-	Assert.assertEquals(ndccurrency, "XOF");
+	Assert.assertEquals(ndccurrency, "USD");
 
 }
 

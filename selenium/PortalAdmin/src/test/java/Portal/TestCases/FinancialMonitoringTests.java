@@ -143,11 +143,11 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		ScrollDown();
 
-		balanceinitialx = fmpage.GetBalanceFunds("XOF");
+		balanceinitialx = fmpage.GetBalanceFunds("USD");
 
-		fmpage.DoFundsIn("1500","XOF");
+		fmpage.DoFundsIn("1500","USD");
 
-		balancefinalx = fmpage.GetBalanceFunds("XOF");
+		balancefinalx = fmpage.GetBalanceFunds("USD");
 
 		Assert.assertEquals(balancefinalx, 1500 + balanceinitialx);
 
@@ -179,13 +179,13 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		fmpage.CheckOptionsDisplayed("Financial Controls");
 
-		balanceinitial = fmpage.GetBalanceNDC("XOF");
+		balanceinitial = fmpage.GetBalanceNDC("USD");
 
-		fmpage.UpdateNDC("XOF","9000");
+		fmpage.UpdateNDC("USD","9000");
 
 		PopUpHandler("OK");
 
-		balancefinal = fmpage.GetBalanceNDC("XOF");
+		balancefinal = fmpage.GetBalanceNDC("USD");
 
 		Assert.assertEquals(balanceinitial, balancefinal);
 	}
@@ -249,9 +249,9 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		fmpage.CheckOptionsDisplayed("Financial Controls");
 
-		fmpage.UpdateNDC("XOF","25000");
+		fmpage.UpdateNDC("USD","25000");
 
-		valz = String.valueOf(fmpage.GetBalanceNDC("XOF"));
+		valz = String.valueOf(fmpage.GetBalanceNDC("USD"));
 		
 		Assert.assertEquals("25000.0", valz);
    }
@@ -422,13 +422,13 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		ScrollDown();
 
-		balanceinitialx = fmpage.GetBalanceFunds("XOF");
+		balanceinitialx = fmpage.GetBalanceFunds("USD");
 
-		fmpage.DoFundsOut("500", "XOF");
+		fmpage.DoFundsOut("500", "USD");
 
 		fmpage.alertHandler("Cancel");
 
-		balancefinalx = fmpage.GetBalanceFunds("XOF");
+		balancefinalx = fmpage.GetBalanceFunds("USD");
 
 		Assert.assertEquals(balancefinalx, balanceinitialx);
 
@@ -436,7 +436,7 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		fmpage.alertHandler("OK");
 
-		balancefinalx = fmpage.GetBalanceFunds("XOF");
+		balancefinalx = fmpage.GetBalanceFunds("USD");
 
 		Assert.assertEquals(balancefinalx, balanceinitialx - 500);
 
@@ -471,7 +471,7 @@ public class FinancialMonitoringTests extends BaseClass {
 						  
 						  fmpage.CheckOptionsDisplayed("Financial Controls");
 						  
-						  fmpage.UpdateNDC("XOF","00");
+						  fmpage.UpdateNDC("USD","00");
 						  
 						  Thread.sleep(2000);
 						  
@@ -542,15 +542,15 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		ScrollDown();
 
-		balanceinitial = fmpage.GetBalanceFunds("XOF");
+		balanceinitial = fmpage.GetBalanceFunds("USD");
 
 		Thread.sleep(3000);
 
-		fmpage.DoFundsIn("500.50","XOF");
+		fmpage.DoFundsIn("500.50","USD");
 
 		Thread.sleep(3000);
 
-		balancefinal = fmpage.GetBalanceFunds("XOF");
+		balancefinal = fmpage.GetBalanceFunds("USD");
 
 		System.out.println(balancefinal);
 
@@ -582,17 +582,17 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		ScrollDown();
 
-		balanceinitial = fmpage.GetBalanceFunds("XOF");
+		balanceinitial = fmpage.GetBalanceFunds("USD");
 
 		Thread.sleep(3000);
 
-		fmpage.DoFundsOut("500.50", "XOF");
+		fmpage.DoFundsOut("500.50", "USD");
 
 		fmpage.alertHandler("OK");
 
 		Thread.sleep(3000);
 
-		balancefinal = fmpage.GetBalanceFunds("XOF");
+		balancefinal = fmpage.GetBalanceFunds("USD");
 
 		System.out.println(balancefinal);
 
@@ -627,7 +627,7 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		ScrollDown();
 
-		fmpage.DoFundsIn_SpecialCharacters("£$£%£%","XOF");
+		fmpage.DoFundsIn_SpecialCharacters("£$£%£%","USD");
 
 	}
 
@@ -861,11 +861,11 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		fmpage.ClickOptionDfsp("Current Window");
 
-		portalvalue =  fmpage.accounts_Balance("XOF");
+		portalvalue =  fmpage.accounts_Balance("USD");
 		
 		System.out.println(portalvalue);
 		
-		apivalue = GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance");
+		apivalue = GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance");
 		
 		System.out.println(apivalue);
 		
@@ -896,11 +896,11 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		fmpage.ClickOptionDfsp("Current Window");
 
-		portalvalue = fmpage.accounts_Position("XOF","Current Window");
+		portalvalue = fmpage.accounts_Position("USD","Current Window");
 		
 		System.out.println(portalvalue);
 		
-		apivalue = GetParticipantAccounts("testfsp1", "POSITION",  "XOF", "balance");
+		apivalue = GetParticipantAccounts("testfsp1", "POSITION",  "USD", "balance");
 		
 		System.out.println(apivalue);
 		 
@@ -953,9 +953,9 @@ public class FinancialMonitoringTests extends BaseClass {
             fmpage.CheckAvialableOptionsDfsp();
             fmpage.ClickOptionDfsp("Window History");
             
-            numberoftxns = fmpage.GetOutgoingTransactionsNumberTransfers("XOF");
+            numberoftxns = fmpage.GetOutgoingTransactionsNumberTransfers("USD");
             
-            totalamount = fmpage.GetOutgoingTransactionsTotalAmount("XOF");
+            totalamount = fmpage.GetOutgoingTransactionsTotalAmount("USD");
             
             Assert.assertEquals(numberoftxns, "2");
             
@@ -1134,9 +1134,9 @@ public class FinancialMonitoringTests extends BaseClass {
 			
 			fmpage.CheckOptionsDisplayed("Financial Controls");
 			
-			ndcvalue = fmpage.verify_NDC_Average_Percentage("XOF");
+			ndcvalue = fmpage.verify_NDC_Average_Percentage("USD");
 			
-			fmpage.UpdateNDC("XOF",ndcvalue);
+			fmpage.UpdateNDC("USD",ndcvalue);
 			
 			Thread.sleep(3000);
 			
@@ -1152,7 +1152,7 @@ public class FinancialMonitoringTests extends BaseClass {
 			
 			ScrollDown();
 			
-			ndcpercentage =fmpage.Ndc_Average_Percentage("XOF");
+			ndcpercentage =fmpage.Ndc_Average_Percentage("USD");
 			
 			Assert.assertEquals(ndcpercentage, "100.00%");
 			
@@ -1168,7 +1168,7 @@ public class FinancialMonitoringTests extends BaseClass {
 			
 			fmpage.CheckOptionsDisplayed("Financial Controls");
 			
-			fmpage.UpdateNDC("XOF","50000");
+			fmpage.UpdateNDC("USD","50000");
 	
 	}
 
@@ -1461,9 +1461,9 @@ public class FinancialMonitoringTests extends BaseClass {
 		  
 		  //fmpage.verify_Outgoing_Transactions_WindowHistory_TestFsp1();
 		  
-		  numberoftxns = fmpage.GetOutgoingTransactionsNumberTransfers("XOF");
+		  numberoftxns = fmpage.GetOutgoingTransactionsNumberTransfers("USD");
           
-          totalamount = fmpage.GetOutgoingTransactionsTotalAmount("XOF");
+          totalamount = fmpage.GetOutgoingTransactionsTotalAmount("USD");
           
           Assert.assertEquals(numberoftxns, "2");
           
@@ -1481,9 +1481,9 @@ public class FinancialMonitoringTests extends BaseClass {
 	  
 		 // fmpage.verify_Incoming_Transactions_WindowHistory_TestFsp2();
 		  
-          numberoftxns = fmpage.GetIncommingTransactionsNumberTransfers("XOF");
+          numberoftxns = fmpage.GetIncommingTransactionsNumberTransfers("USD");
           
-          totalamount = fmpage.GetIncommingTransactionsTotalAmount("XOF");
+          totalamount = fmpage.GetIncommingTransactionsTotalAmount("USD");
           
           Assert.assertEquals(numberoftxns, "1");
           
@@ -1500,9 +1500,9 @@ public class FinancialMonitoringTests extends BaseClass {
 		  
 		 // fmpage.verify_Incoming_Transactions_WindowHistory_TestFsp4();
 		  
-          numberoftxns = fmpage.GetIncommingTransactionsNumberTransfers("XOF");
+          numberoftxns = fmpage.GetIncommingTransactionsNumberTransfers("USD");
           
-          totalamount = fmpage.GetIncommingTransactionsTotalAmount("XOF");
+          totalamount = fmpage.GetIncommingTransactionsTotalAmount("USD");
           
           Assert.assertEquals(numberoftxns, "1");
           
@@ -1517,9 +1517,9 @@ public class FinancialMonitoringTests extends BaseClass {
 		  fmpage.CheckAvialableOptionsDfsp();
 		  
 		  //fmpage.verify_Outgoing_Transactions_WindowHistory_TestFsp3();
-          numberoftxns = fmpage.GetOutgoingTransactionsNumberTransfers("XOF");
+          numberoftxns = fmpage.GetOutgoingTransactionsNumberTransfers("USD");
           
-          totalamount = fmpage.GetOutgoingTransactionsTotalAmount("XOF");
+          totalamount = fmpage.GetOutgoingTransactionsTotalAmount("USD");
           
           Assert.assertEquals(numberoftxns, "1");
           
@@ -1535,9 +1535,9 @@ public class FinancialMonitoringTests extends BaseClass {
 		  
 		  //fmpage.verify_Incoming_Transactions_WindowHistory_TestFsp1();
 		  
-         numberoftxns = fmpage.GetIncommingTransactionsNumberTransfers("XOF");
+         numberoftxns = fmpage.GetIncommingTransactionsNumberTransfers("USD");
           
-          totalamount = fmpage.GetIncommingTransactionsTotalAmount("XOF");
+          totalamount = fmpage.GetIncommingTransactionsTotalAmount("USD");
           
           Assert.assertEquals(numberoftxns, "1");
           
@@ -1613,7 +1613,7 @@ public class FinancialMonitoringTests extends BaseClass {
 				fmpage.CheckAvialableOptionsDfsp();
 				
 				//fmpage.verify_FinancialControl_Ndc_Currency();
-				balan = fmpage.GetBalanceNDC("XOF");
+				balan = fmpage.GetBalanceNDC("USD");
 				
 				Assert.assertNotNull(balan);
 	}
@@ -1648,9 +1648,9 @@ public class FinancialMonitoringTests extends BaseClass {
 				  
 				  fmpage.CheckOptionsDisplayed("Financial Controls");
 				  
-				  balanceinitial = fmpage.GetBalanceNDC("XOF");
+				  balanceinitial = fmpage.GetBalanceNDC("USD");
 
-				  fmpage.UpdateNDC("XOF","ghjklo");
+				  fmpage.UpdateNDC("USD","ghjklo");
                   
 				  Thread.sleep(2000);
 				  
@@ -1658,7 +1658,7 @@ public class FinancialMonitoringTests extends BaseClass {
 				  
 				  Thread.sleep(2000);
 
-				  balancefinal = fmpage.GetBalanceNDC("XOF");
+				  balancefinal = fmpage.GetBalanceNDC("USD");
 
 				 Assert.assertEquals(balanceinitial, balancefinal);
 				 
@@ -1692,11 +1692,11 @@ public class FinancialMonitoringTests extends BaseClass {
 
 			ScrollDown();
 
-			balanceinitialx = fmpage.GetBalanceFunds("XOF");
+			balanceinitialx = fmpage.GetBalanceFunds("USD");
 
-			fmpage.DoFundsIn("100","XOF");
+			fmpage.DoFundsIn("100","USD");
 
-			balancefinalx = fmpage.GetBalanceFunds("XOF");
+			balancefinalx = fmpage.GetBalanceFunds("USD");
 
 			Assert.assertEquals(balancefinalx, 100 + balanceinitialx);
 
@@ -1733,13 +1733,13 @@ public class FinancialMonitoringTests extends BaseClass {
 
 			ScrollDown();
 
-			balanceinitialx = fmpage.GetBalanceFunds("XOF");
+			balanceinitialx = fmpage.GetBalanceFunds("USD");
 
-			fmpage.DoFundsOut("100","XOF");
+			fmpage.DoFundsOut("100","USD");
 
 			fmpage.alertHandler("Cancel");
 
-			balancefinalx = fmpage.GetBalanceFunds("XOF");
+			balancefinalx = fmpage.GetBalanceFunds("USD");
 
 			Assert.assertEquals(balancefinalx, balanceinitialx);
 
@@ -1747,7 +1747,7 @@ public class FinancialMonitoringTests extends BaseClass {
 
 			fmpage.alertHandler("OK");
 
-			balancefinalx = fmpage.GetBalanceFunds("XOF");
+			balancefinalx = fmpage.GetBalanceFunds("USD");
 
 			Assert.assertEquals(balancefinalx, balanceinitialx - 100);
 
@@ -1778,15 +1778,15 @@ public class FinancialMonitoringTests extends BaseClass {
 
 			fmpage.CheckOptionsDisplayed("Financial Controls");
 			
-    		fmpage.UpdateNDC("XOF","75000.01");
+    		fmpage.UpdateNDC("USD","75000.01");
 
-			balancefinalx = fmpage.GetBalanceNDC("XOF");
+			balancefinalx = fmpage.GetBalanceNDC("USD");
 
 			Assert.assertEquals(String.valueOf(balancefinalx), "75000.01");
 			
-			fmpage.UpdateNDC("XOF","75000");
+			fmpage.UpdateNDC("USD","75000");
 			
-			balancefinalx = fmpage.GetBalanceNDC("XOF");
+			balancefinalx = fmpage.GetBalanceNDC("USD");
 			
 			Assert.assertEquals(String.valueOf(balancefinalx), "75000.0");
 			
@@ -1821,9 +1821,9 @@ public class FinancialMonitoringTests extends BaseClass {
 																			 
 			fmpage.CheckOptionsDisplayed("Financial Controls");
 			
-			fmpage.UpdateNDC("XOF","75001");
+			fmpage.UpdateNDC("USD","75001");
             
-			bal = String.valueOf(fmpage.GetBalanceNDC("XOF"));
+			bal = String.valueOf(fmpage.GetBalanceNDC("USD"));
 			
 			Assert.assertEquals(bal, "75001.0");
 
@@ -1855,13 +1855,13 @@ public class FinancialMonitoringTests extends BaseClass {
 																			 
 			fmpage.CheckOptionsDisplayed("Financial Controls");
 			
-			balanceinitial = fmpage.GetBalanceNDC("XOF");
+			balanceinitial = fmpage.GetBalanceNDC("USD");
 
-			fmpage.UpdateNDC("XOF","75002");
+			fmpage.UpdateNDC("USD","75002");
 
 			PopUpHandler("OK");
 
-			balancefinal = fmpage.GetBalanceNDC("XOF");
+			balancefinal = fmpage.GetBalanceNDC("USD");
 
 			Assert.assertEquals(balanceinitial, balancefinal);
 
@@ -1890,11 +1890,11 @@ public class FinancialMonitoringTests extends BaseClass {
 
 			fmpage.ClickOptionDfsp("Financial Controls");
 
-			portalvalue = fmpage.accounts_Position("XOF", "Financial Controls");
+			portalvalue = fmpage.accounts_Position("USD", "Financial Controls");
 			
 			System.out.println(portalvalue);
 			
-			apivalue = GetParticipantAccounts("testfsp1", "POSITION",  "XOF", "id");
+			apivalue = GetParticipantAccounts("testfsp1", "POSITION",  "USD", "id");
 			
 			System.out.println(apivalue);
 			 

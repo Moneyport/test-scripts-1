@@ -731,7 +731,7 @@ public void AssertPage() {
 public void verify_Settlement_Account_Balance() {
 	
 	Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'115.00')]")).isDisplayed());
-	Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'XOF')]")).isDisplayed());
+	Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'USD')]")).isDisplayed());
 	
 	List<WebElement> fsprows = driver.findElements(By.xpath("//html/body/div[2]/div[2]/div/div[2]/div[2]/table/tbody/tr"));
 	System.out.println("Number of rows=  " + fsprows.size());
@@ -743,7 +743,7 @@ public void verify_Settlement_Account_Balance() {
 public void verify_Currency_And_Amount_Using_One_CurrencyType() {
 	
 	Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'25.00')]")).isDisplayed());
-	Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'XOF')]")).isDisplayed());
+	Assert.assertEquals(true, driver.findElement(By.xpath("//div[contains(text(),'USD')]")).isDisplayed());
 }
 
 public void validateDateRange() {

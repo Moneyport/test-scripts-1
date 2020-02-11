@@ -1,13 +1,9 @@
 <suite name="Portal_Test_Suite" verbose="1">
-
 	<listeners>
 		<listener class-name="Portal.Utilities.ExtentReporterNG" />
 	</listeners>
-
 	<test name="Regression_Test">
 		<classes>
-		
-		
 			<class name="Portal.TestCases.AdministrationTests" > 
              <methods> 
 			 <include name="Test_Administration_NDC_Adjustment_email"/> 
@@ -16,14 +12,12 @@
 			 <include name="Test_validate_the_Email_Format_In_Notifications"/>
 			</methods> 
 			</class>  
-			
 			<class name="Portal.TestCases.FinancialMonitoringTests">
 				<methods>
 					<include name="Test_Financial_Monitor" />
 					<include name="Test_Financial_Monitor_Check_Current_Window" />
 					<include name="Test_Financial_Monitor_Check_Window_History" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Funds_In" />
-				   
 					<include name="Test_Financial_Monitor_Financial_Controls_DFSP_stop_transfers" /> 
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC1" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC2" />
@@ -31,7 +25,6 @@
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC4" />
 					<include name="Test_Financial_Monitor_Check_Only_Active_Positions_Accounts" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Funds_Out" />
-				
 					<include name="Test_Disable_Transactions_Hub" />
 					<include name="Test_funds_In_Decimal_Value" />
 					<include name="Test_funds_Out_Decimal_Value" />
@@ -61,17 +54,12 @@
 					<include name="Test_Accounts_Settlement" />
 					<include name="Test_Accounts_Position" />
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC_special_chars" />
-				 
 					<include name="Test_Financial_Monitor_Check_Financial_Controls_Update_NDC_decimals" />
-				
 					<include name="Review_NDC_Management_participantsID" />
-				 
 			</methods>
 			</class>
 			 <class name="Portal.TestCases.SettlementWindowsTests">
 			  <methods> 
-			
-			  <include name ="Test_Settlement_Window_Settled"/>
 			  <include name ="Test_Settlement_Window_Close"/>
 			  <include name ="Test_Settlement_Window_Dates"/>
 			  <include name ="Test_Closing_Settlement_window"/>
@@ -79,21 +67,12 @@
 			  <include name ="Test_review_Details_Of_Settlement_Windows"/>
 			  <include name ="Test_review_Settlment_Window_And_Window_Details"/>
 			  <include name ="Test_pagination_settlement_window"/>
-			  <include name ="Test_Funds_In_Funds_Out_Button_2_DFSPs"/>
-			  <include name ="Test_Funds_In_Funds_Out_Button_4_DFSPs"/>   
-			  <include name ="Check_Currency_and_NET_balance"/>  
-			
-			  <include name ="review_Settlment_Window_And_Window_Details"/>  
+			  <include name ="Check_Currency_and_NET_balance"/> 
 			  <include name ="Test_settlement_Accounts_Balance"/>
 			  <include name ="Test_settlement_Window_Navigation"/>
 			  <include name ="Test_ValidateSettlement_Window_Using_One_Currency_Type"/>  
-			      
-			      
-			  
-				
 				</methods> 
 				</class> 
-
 			<class name="Portal.TestCases.TransfersValidationTests">
 			   <methods> 
 				<include name ="Test_Transaction_Validation_Invalid_TransferID"/>
@@ -101,11 +80,6 @@
 				<include name ="Test_Transaction_Validation_Invalid_characters"/>
 				</methods> 
 			</class>
-			
-
-
 		</classes>
 	</test>
-
-
 </suite>
