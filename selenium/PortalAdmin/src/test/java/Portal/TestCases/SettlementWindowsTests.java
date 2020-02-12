@@ -711,7 +711,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalanceinitial1 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalanceinitial1 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -727,7 +727,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalanceinitial2 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalanceinitial2 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		ScrollUp();
 
@@ -766,7 +766,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalancefinal1 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalancefinal1 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -778,7 +778,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalancefinal2 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalancefinal2 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		Assert.assertEquals(settlementbalancefinal1, settlementbalanceinitial1 - 1);
 
@@ -827,7 +827,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalanceinitial1 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalanceinitial1 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -843,7 +843,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalanceinitial2 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalanceinitial2 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -859,7 +859,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalanceinitial3 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalanceinitial3 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -875,7 +875,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalanceinitial4 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalanceinitial4 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		ScrollUp();
 
@@ -919,7 +919,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalancefinal1 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalancefinal1 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -931,7 +931,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalancefinal2 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalancefinal2 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -943,7 +943,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalancefinal3 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalancefinal3 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		RefreshPage();
 
@@ -955,7 +955,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		settlementbalancefinal4 = Float.parseFloat(fmpage.accounts_Balance("XOF").substring(1));
+		settlementbalancefinal4 = Float.parseFloat(fmpage.accounts_Balance("USD").substring(1));
 
 		Assert.assertEquals(settlementbalancefinal1, settlementbalanceinitial1 - 80);
 
@@ -1068,7 +1068,7 @@ public class SettlementWindowsTests extends BaseClass {
 
 		currandnetamount = setwinpage.GetWindowCurrencyAndAmount(setwinpage.GetFirstWindow("PENDING_SETTLEMENT"));
 
-		Assert.assertTrue(currandnetamount.contains("XOF"));
+		Assert.assertTrue(currandnetamount.contains("USD"));
 
 		Assert.assertTrue(currandnetamount.contains("85.00"));
 	}

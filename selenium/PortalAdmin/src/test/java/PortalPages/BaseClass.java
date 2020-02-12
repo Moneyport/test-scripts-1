@@ -13,6 +13,7 @@ import java.io.OutputStream;
 import java.io.StringReader;						
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.KeyPair;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -34,7 +35,7 @@ import org.json.*;
 import org.json.JSONObject;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+//import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -57,18 +58,24 @@ import com.google.gson.stream.JsonReader;
 import org.testng.Reporter;
 import org.testng.reporters.XMLReporter;
 import org.testng.ITestResult;
-//import org.exp.annotations.Xray;							
-//import org.testng.internal.PropertiesFile;
 import Portal.Utilities.PropertiesFile;
 
 import Portal.Utilities.BrowserFactory;
 import PortalPages.SettlementWindowsPage.WindowDetailButtons;
+import java.util.Base64;
+import java.security.Key;
+import java.security.KeyPair;
+//import org.openqa.selenium.Keys;
 
 public class BaseClass {
 
 	//public ThreadLocal<WebDriver> driver;
 	public WebDriver driver; 
-	public static String quoteid,transferid,ilpPacket,condition;
+	public static String quoteid,transferid;
+	public static String ilpPacket="AQAAAAAAAADIEHByaXZhdGUucGF5ZWVmc3CCAiB7InRyYW5zYWN0aW9uSWQiOiIyZGY3NzRlMi1mMWRiLTRmZjctYTQ5NS0yZGRkMzdhZjdjMmMiLCJxdW90ZUlkIjoiMDNhNjA1NTAtNmYyZi00NTU2LThlMDQtMDcwM2UzOWI4N2ZmIiwicGF5ZWUiOnsicGFydHlJZEluZm8iOnsicGFydHlJZFR5cGUiOiJNU0lTRE4iLCJwYXJ0eUlkZW50aWZpZXIiOiIyNzcxMzgwMzkxMyIsImZzcElkIjoicGF5ZWVmc3AifSwicGVyc29uYWxJbmZvIjp7ImNvbXBsZXhOYW1lIjp7fX19LCJwYXllciI6eyJwYXJ0eUlkSW5mbyI6eyJwYXJ0eUlkVHlwZSI6Ik1TSVNETiIsInBhcnR5SWRlbnRpZmllciI6IjI3NzEzODAzOTExIiwiZnNwSWQiOiJwYXllcmZzcCJ9LCJwZXJzb25hbEluZm8iOnsiY29tcGxleE5hbWUiOnt9fX0sImFtb3VudCI6eyJjdXJyZW5jeSI6IlVTRCIsImFtb3VudCI6IjIwMCJ9LCJ0cmFuc2FjdGlvblR5cGUiOnsic2NlbmFyaW8iOiJERVBPU0lUIiwic3ViU2NlbmFyaW8iOiJERVBPU0lUIiwiaW5pdGlhdG9yIjoiUEFZRVIiLCJpbml0aWF0b3JUeXBlIjoiQ09OU1VNRVIiLCJyZWZ1bmRJbmZvIjp7fX19";
+	public static String condition="HOr22-H3AfTDHrSkPjJtVPRdKouuMkDXTR4ejlQa8Ks";
+	
+	
     public BrowserFactory browserFactory;
     public static String env = PropertiesFile.env;
 	
@@ -233,7 +240,7 @@ public boolean isFileDownloaded(String fileName) {
 			e.printStackTrace();
 		}
 		Actions action = new Actions(driver);
-		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		action.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).build().perform();
 		
 		try {
 			Thread.sleep(2000);
@@ -255,7 +262,7 @@ public void ScrollUp() {
 			e.printStackTrace();
 		}
 		Actions action = new Actions(driver);
-		action.sendKeys(Keys.PAGE_UP).build().perform();
+		action.sendKeys(org.openqa.selenium.Keys.PAGE_UP).build().perform();
 		
 		try {
 			Thread.sleep(2000);
@@ -301,7 +308,7 @@ public void ScrollUp() {
 	        "    \"amountType\": \"SEND\",  \r\n" + 
 	        " \"amount\": { \r\n" +
 	        "    \"amount\":"+"\""+amount+"\""+",  \r\n" + 
-	        "    \"currency\": \"XOF\" \r\n" + 
+	        "    \"currency\": \"USD\" \r\n" + 
 	        "    }, \r\n" +
 	        " \"transactionType\": { \r\n" +
 	        "    \"scenario\": \"TRANSFER\",  \r\n" + 
@@ -328,10 +335,10 @@ public void ScrollUp() {
 	    URL obj = new URL(PropertiesFile.quotesuri);
 	    HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
 	    postConnection.setRequestMethod("POST");
-	    postConnection.setRequestProperty("Authorization","Bearer "+ token); 
+	    //postConnection.setRequestProperty("Authorization","Bearer "+ token); 
 	    postConnection.setRequestProperty("Accept", "application/vnd.interoperability.quotes+json;version=1");
 	    postConnection.setRequestProperty("Content-Type", "application/vnd.interoperability.quotes+json;version=1.0");
-	    postConnection.setRequestProperty("Accept", "application/vnd.interoperability.quotes+json;version=1");
+	    //postConnection.setRequestProperty("Accept", "application/vnd.interoperability.quotes+json;version=1");
 	    postConnection.setRequestProperty("Date", strDate);
 	    postConnection.setRequestProperty("FSPIOP-Source", payerdfsp);
 	    postConnection.setRequestProperty("FSPIOP-Destination", payeedfsp);
@@ -345,24 +352,101 @@ public void ScrollUp() {
 	    System.out.println("POST Response Message : " + postConnection.getResponseMessage());
 	    responsecode= String.valueOf(responseCode);
 	    return responsecode;
-	 
-																	  
-											   
-						  
-													
-													   
-										
-					   
-						
-												 
-			 
-											   
-		
+
 	}
+
 	
+/*	public static String SendQuote(String payerdfsp, String payeedfsp, String amount, String token,String curr) throws IOException {
+		quoteid= GenerateUUID();
+		transferid=GenerateUUID();
+		String responsecode;
+	    final String POST_PARAMS = "{\n" + "\"quoteId\": "+"\""+quoteid+"\""+",\r\n" +
+	        "    \"transactionId\": "+"\""+transferid+"\""+",\r\n" +
+	        "    \"payee\": { \r\n" +
+	        "          \"partyIdInfo\": { \r\n" +
+	        "    \"partyIdType\": \"MSISDN\",  \r\n" + 
+	        "    \"partyIdentifier\": \"27713803915\", \r\n" + 
+	        "    \"fspId\": " +"\""+payeedfsp+"\""+ " \r\n" + 
+	        "    } \r\n" + 
+	        "    }, \r\n" +
+	        "    \"payer\": { \r\n" +
+	        "        \"partyIdInfo\": { \r\n" +
+	        "    \"partyIdType\": \"MSISDN\",  \r\n" + 
+	        "    \"partyIdentifier\": \"27713803905\", \r\n" + 
+	        "    \"fspId\": "+"\""+payerdfsp+"\""+" \r\n" + 
+	        "    }, \r\n" + 
+	        " \"personalInfo\": { \r\n" +
+	        " \"complexName\": { \r\n" +
+	        "    \"firstName\": \"Mats\",  \r\n" + 
+	        "    \"lastName\": \"Hagman\" \r\n" + 
+	        "    }, \r\n" +
+	        "    \"dateOfBirth\": \"1983-10-25\" \r\n" + 
+	        "    } \r\n" +
+	        "    }, \r\n" +
+	        "    \"amountType\": \"SEND\",  \r\n" + 
+	        " \"amount\": { \r\n" +
+	        "    \"amount\":"+"\""+amount+"\""+",  \r\n" + 
+	        "    \"currency\":"+"\""+curr+"\""+" \r\n" + 
+	        "    }, \r\n" +
+	        " \"transactionType\": { \r\n" +
+	        "    \"scenario\": \"TRANSFER\",  \r\n" + 
+	        "    \"initiator\": \"PAYER\", \r\n" + 
+	        "    \"initiatorType\": \"CONSUMER\" \r\n" + 
+	        "    }, \r\n" +
+	        "    \"note\": \"hej\"  \r\n" + 
+	        " } \n";
+	    //System.out.println(POST_PARAMS);
+	    DateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.ENGLISH);
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		//strDate = strDate;
+		
+	//	if((PropertiesFile.env).equals("stg") || (PropertiesFile.env).equals("uat")|| (PropertiesFile.env).equals("sandbox")) {
+		  System.setProperty("javax.net.ssl.trustStore", "C:\\Program Files\\Java\\jdk-11.0.2\\lib\\security\\cacerts");
+		    System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+		    System.setProperty("javax.net.ssl.trustStoreType", "JKS");
+		    System.setProperty("javax.net.ssl.keyStore", "C:\\Users\\Emerson\\Downloads\\latest certificate\\finalcombined.pfx");
+		    System.setProperty("javax.net.ssl.keyStorePassword", "wso2carbon");
+		    System.setProperty("javax.net.ssl.keyStoreType", "PKCS12");
+	//	}
+		String header = "{\"alg\":\"RS256\",\"FSPIOP-Source\":\"payerfsp\",\"FSPIOP-Destination\":\"payeefsp\", \"FSPIOP-URI\":\"/quotes\", \"FSPIOP-HTTP-Method\":\"POST\", \"Date\":"+strDate+"}";
+		String claims = POST_PARAMS;
 	
+	    KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
+
+	    String tokenxxx = Jwts.builder().setSubject(claims).signWith(keyPair.getPrivate()).compact();
+	    
+	    
+				
+	    //URL obj = new URL("https://extgw.public.tips-sandbox.live:8243/fsp/1.0/quotes");
+	    URL obj = new URL(PropertiesFile.quotesuri);
+	    HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
+	    postConnection.setRequestMethod("POST");
+	    postConnection.setRequestProperty("Authorization","Bearer "+ token); 
+	    postConnection.setRequestProperty("Accept", "application/vnd.interoperability.quotes+json;version=1");
+	    postConnection.setRequestProperty("Content-Type", "application/vnd.interoperability.quotes+json;version=1.0");
+	    postConnection.setRequestProperty("Accept", "application/vnd.interoperability.quotes+json;version=1");
+	    postConnection.setRequestProperty("Date", strDate);
+	    postConnection.setRequestProperty("FSPIOP-Source", payerdfsp);
+	    postConnection.setRequestProperty("FSPIOP-Destination", payeedfsp);
+	    postConnection.setRequestProperty("FSPIOP-Signature", tokenxxx);
+	    postConnection.setDoOutput(true);
+	    OutputStream os = postConnection.getOutputStream();
+	    os.write(POST_PARAMS.getBytes());
+	    os.flush();
+	    os.close();
+	    int responseCode = postConnection.getResponseCode();
+	    System.out.println("POST Response Code :  " + responseCode);
+	    System.out.println("POST Response Message : " + postConnection.getResponseMessage());
+	    responsecode= String.valueOf(responseCode);
+	    return responsecode;
+									   
+		
+	}	
+	*/
 	
 	public static String GetQuoteInfo(String payerdfsp, String quote) throws IOException {
+	   // URL urlForGetRequest = new URL(PropertiesFile.simulator +"/"+payerdfsp+"/callbacks/"+quote);
 	    URL urlForGetRequest = new URL(PropertiesFile.simulator +"/"+payerdfsp+"/correlationid/"+quote);
 	    String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
@@ -426,29 +510,26 @@ public void ScrollUp() {
 	    		"  \"payeeFsp\": "+"\""+payeedfsp+"\""+",\r\n" + 
 	    		"  \"amount\": {\r\n" + 
 	    		"    \"amount\": "+"\""+amount+"\""+",\r\n" + 
-	    		"    \"currency\": \"XOF\" \r\n" + 
+	    		"    \"currency\": \"USD\" \r\n" + 
 	    		"  },\r\n" + 
 	    		"  \"expiration\": "+"\""+expDate+"\""+",\r\n" + 
 	    		"  \"ilpPacket\": "+"\""+ilppacket+"\""+",\r\n" + 
 	    		"  \"condition\": "+"\""+condition+"\""+"\r\n" + 
 	    		"}";
-	  //  System.out.println(POST_PARAMS);
-	  
-		
-		//strDate = strDate;
+	 
 				
 	    URL obj = new URL(PropertiesFile.transfersuri);
 	    HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
 	    postConnection.setRequestMethod("POST");
-	    postConnection.setRequestProperty("Authorization","Bearer "+ token); 
+	 //   postConnection.setRequestProperty("Authorization","Bearer "+ token); 
 	    postConnection.setRequestProperty("Accept", "application/vnd.interoperability.transfers+json;version=1");
 	    postConnection.setRequestProperty("Content-Type", "application/vnd.interoperability.transfers+json;version=1.0");
 	    postConnection.setRequestProperty("Date", strDate);
 	    postConnection.setRequestProperty("FSPIOP-Source", payerdfsp);
 	    postConnection.setRequestProperty("FSPIOP-Destination", payeedfsp);
 	    postConnection.setRequestProperty("FSPIOP-HTTP-Method", "POST");
-	    postConnection.setRequestProperty("FSPIOP-Signature", "{\"signature\":\"iU4GBXSfY8twZMj1zXX1CTe3LDO8Zvgui53icrriBxCUF_wltQmnjgWLWI4ZUEueVeOeTbDPBZazpBWYvBYpl5WJSUoXi14nVlangcsmu2vYkQUPmHtjOW-yb2ng6_aPfwd7oHLWrWzcsjTF-S4dW7GZRPHEbY_qCOhEwmmMOnE1FWF1OLvP0dM0r4y7FlnrZNhmuVIFhk_pMbEC44rtQmMFv4pm4EVGqmIm3eyXz0GkX8q_O1kGBoyIeV_P6RRcZ0nL6YUVMhPFSLJo6CIhL2zPm54Qdl2nVzDFWn_shVyV0Cl5vpcMJxJ--O_Zcbmpv6lxqDdygTC782Ob3CNMvg\\\",\\\"protectedHeader\\\":\\\"eyJhbGciOiJSUzI1NiIsIkZTUElPUC1VUkkiOiIvdHJhbnNmZXJzIiwiRlNQSU9QLUhUVFAtTWV0aG9kIjoiUE9TVCIsIkZTUElPUC1Tb3VyY2UiOiJPTUwiLCJGU1BJT1AtRGVzdGluYXRpb24iOiJNVE5Nb2JpbGVNb25leSIsIkRhdGUiOiIifQ\"}");
-	    postConnection.setRequestProperty("FSPIOP-URI", "/transfers");
+	  //  postConnection.setRequestProperty("FSPIOP-Signature", "{\"signature\":\"iU4GBXSfY8twZMj1zXX1CTe3LDO8Zvgui53icrriBxCUF_wltQmnjgWLWI4ZUEueVeOeTbDPBZazpBWYvBYpl5WJSUoXi14nVlangcsmu2vYkQUPmHtjOW-yb2ng6_aPfwd7oHLWrWzcsjTF-S4dW7GZRPHEbY_qCOhEwmmMOnE1FWF1OLvP0dM0r4y7FlnrZNhmuVIFhk_pMbEC44rtQmMFv4pm4EVGqmIm3eyXz0GkX8q_O1kGBoyIeV_P6RRcZ0nL6YUVMhPFSLJo6CIhL2zPm54Qdl2nVzDFWn_shVyV0Cl5vpcMJxJ--O_Zcbmpv6lxqDdygTC782Ob3CNMvg\\\",\\\"protectedHeader\\\":\\\"eyJhbGciOiJSUzI1NiIsIkZTUElPUC1VUkkiOiIvdHJhbnNmZXJzIiwiRlNQSU9QLUhUVFAtTWV0aG9kIjoiUE9TVCIsIkZTUElPUC1Tb3VyY2UiOiJPTUwiLCJGU1BJT1AtRGVzdGluYXRpb24iOiJNVE5Nb2JpbGVNb25leSIsIkRhdGUiOiIifQ\"}");
+	 //   postConnection.setRequestProperty("FSPIOP-URI", "/transfers");
 	    postConnection.setDoOutput(true);
 	    OutputStream os = postConnection.getOutputStream();
 	    os.write(POST_PARAMS.getBytes());
@@ -460,25 +541,80 @@ public void ScrollUp() {
 	    res=String.valueOf(responseCode);
       return res;
 	
-																	  
-											   
-						  
-													
-													   
-										
-					   
-						
-												 
-			 
-											   
+									   
 		
 	}
 	
+	/*
+public static  String SendTransfer(String payerdfsp, String payeedfsp, String amount,String token, String transferidx,String ilppacket,String condition,String curr) throws IOException {
+		
+	    DateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.ENGLISH);
+	    DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
+		Date date = new Date();
+		String strDate = dateFormat.format(date);
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(date); 
+		c.add(Calendar.DATE, 1);
+		date = c.getTime();
+		String expDate = dateFormat2.format(date);
+		String status,res = null;
+		
+		
+    final String POST_PARAMS = "{\r\n" + 
+    		"  \"transferId\": "+"\""+transferidx+"\""+",\r\n" + 
+    		"  \"payerFsp\": "+"\""+payerdfsp+"\""+",\r\n" + 
+    		"  \"payeeFsp\": "+"\""+payeedfsp+"\""+",\r\n" + 
+    		"  \"amount\": {\r\n" + 
+    		"    \"amount\": "+"\""+amount+"\""+",\r\n" + 
+    		"    \"currency\": "+"\""+curr+"\""+"\r\n" +  
+    		"  },\r\n" + 
+    		"  \"expiration\": "+"\""+expDate+"\""+",\r\n" + 
+    		"  \"ilpPacket\": "+"\""+ilppacket+"\""+",\r\n" + 
+    		"  \"condition\": "+"\""+condition+"\""+"\r\n" + 
+    		"}";
+  
+    String header = "{\"alg\":\"RS256\",\"FSPIOP-Source\":\"payerfsp\",\"FSPIOP-Destination\":\"payeefsp\", \"FSPIOP-URI\":\"/transfers\", \"FSPIOP-HTTP-Method\":\"POST\", \"Date\":"+strDate+"}";
+	String claims = POST_PARAMS;
+	
+    KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
+
+	String tokenxxx = Jwts.builder().setSubject(claims).signWith(keyPair.getPrivate()).compact();
+	    
+	    
+   // URL obj = new URL("https://extgw.public.tips-sandbox.live:8243/fsp/1.0/transfers");
+    URL obj = new URL(PropertiesFile.transfersuri);
+    HttpURLConnection postConnection = (HttpURLConnection) obj.openConnection();
+    postConnection.setRequestMethod("POST");
+    postConnection.setRequestProperty("Authorization","Bearer "+ token); 
+    postConnection.setRequestProperty("Accept", "application/vnd.interoperability.transfers+json;version=1");
+    postConnection.setRequestProperty("Content-Type", "application/vnd.interoperability.transfers+json;version=1.0");
+    postConnection.setRequestProperty("Date", strDate);
+    postConnection.setRequestProperty("FSPIOP-Source", payerdfsp);
+    postConnection.setRequestProperty("FSPIOP-Destination", payeedfsp);
+    postConnection.setRequestProperty("FSPIOP-HTTP-Method", "POST");
+    postConnection.setRequestProperty("FSPIOP-Signature", tokenxxx);
+    postConnection.setRequestProperty("FSPIOP-URI", "/transfers");
+    postConnection.setDoOutput(true);
+    OutputStream os = postConnection.getOutputStream();
+    os.write(POST_PARAMS.getBytes());
+    os.flush();
+    os.close();
+    int responseCode = postConnection.getResponseCode();
+    System.out.println("Transfer POST Response Code :  " + responseCode);
+    System.out.println("Transfer POST Response Message : " + postConnection.getResponseMessage());
+    res=String.valueOf(responseCode);
+  return res;
+
+}
+*/
+
 	
 	
 	public static String GetTransfersInfo(String payerdfsp, String tran) throws IOException {
-	    //URL urlForGetRequest = new URL(PropertiesFile.simulator +"/"+payerdfsp+"/callbacks/"+tran);
-		  URL urlForGetRequest = new URL(PropertiesFile.simulator +"/"+payerdfsp+"/correlationid/"+tran);
+	    
+		URL urlForGetRequest = new URL(PropertiesFile.simulator +"/"+payerdfsp+"/correlationid/"+tran);  
+		//URL urlForGetRequest = new URL(PropertiesFile.simulator +"/callbacks/"+tran);
+		  
 		String readLine = null;
 	    HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
 	    conection.setRequestMethod("GET");
@@ -504,8 +640,12 @@ public void ScrollUp() {
 	        JSONObject jsonObject = new JSONObject(response.toString());
 	      //  JSONObject data = jsonObject.getJSONObject("data");
 	      //  transferstatus = (String) data.get("transferState");
+	     try {
 	        transferstatus = (String) jsonObject.get("transferState");
-	        
+	     }
+	     catch(Exception e) {
+	    	 transferstatus = "FAILED";
+	     }
 	        System.out.println("Transfer Status " + transferstatus);
 	        
 	        
@@ -518,17 +658,21 @@ public void ScrollUp() {
 	
 	
 	
-	public void SendTransfer(String payer, String payee, String amount, String token, String ExpectedResult) throws IOException{
-		String QuoteStatus,TransferStatus;
+	//public void SendTransfer(String payer, String payee, String amount, String token, String ExpectedResult,String curr) throws IOException{
+	public void SendTransfer(String payer, String payee, String amount, String token, String ExpectedResult) throws IOException{	
+	String QuoteStatus,TransferStatus;
 		if(ExpectedResult != "FAILED") {
 		try {
-		QuoteStatus = SendQuote(payer, payee, amount , token);
+			QuoteStatus = SendQuote(payer, payee, amount , token);
+			//QuoteStatus = SendQuote(payer, payee, amount , token, curr);
+		
 		Thread.sleep(2500);
 		Assert.assertEquals(QuoteStatus, "202");
-		QuoteStatus = GetQuoteInfo(payer,quoteid);
+	//	QuoteStatus = GetQuoteInfo(payer,quoteid);
 		Thread.sleep(2500);
-		Assert.assertEquals(QuoteStatus, "OK");
+	//	Assert.assertEquals(QuoteStatus, "OK");
 		TransferStatus = SendTransfer(payer, payee, amount,token,transferid,ilpPacket,condition);
+		//TransferStatus = SendTransfer(payer, payee, amount,token,transferid,ilpPacket,condition, curr);
 		Thread.sleep(3500);
 		Assert.assertEquals(TransferStatus, "202");
 		TransferStatus = GetTransfersInfo(payer,transferid);
@@ -540,13 +684,18 @@ public void ScrollUp() {
 			
 			try {
 			QuoteStatus = SendQuote(payer, payee, amount, token);
+			//QuoteStatus = SendQuote(payer, payee, amount, token, curr);
 			Thread.sleep(2500);
 		/*	Assert.assertEquals(QuoteStatus, "500");*/
-			QuoteStatus = GetQuoteInfo(payer,quoteid);
-			Assert.assertEquals(QuoteStatus, "FAILED");
+		//	QuoteStatus = GetQuoteInfo(payer,quoteid);
+		//	Assert.assertEquals(QuoteStatus, "FAILED");
 			TransferStatus = SendTransfer(payer, payee, amount, token,transferid,ilpPacket,condition);
+		//	TransferStatus = SendTransfer(payer, payee, amount, token,transferid,ilpPacket,condition, curr);
 			Thread.sleep(3500);
-			Assert.assertEquals(TransferStatus, "400");
+			TransferStatus = GetTransfersInfo(payer,transferid);
+			Thread.sleep(2500);
+			Assert.assertEquals(TransferStatus, ExpectedResult);
+			//Assert.assertEquals(TransferStatus, "400");
 			}catch(InterruptedException e) {e.printStackTrace();}
 		}
 	}
@@ -554,14 +703,14 @@ public void ScrollUp() {
 	
 	public static String InactiveDFSPAccount(String dfspname, String accountid, boolean status) throws IOException {
 	   
-		if((PropertiesFile.env).equals("stg") || (PropertiesFile.env).equals("uat")|| (PropertiesFile.env).equals("sandbox")) {
-			  System.setProperty("javax.net.ssl.trustStore", "C:\\Program Files\\Java\\jdk-11.0.2\\lib\\security\\cacerts");
+		//if((PropertiesFile.env).equals("stg") || (PropertiesFile.env).equals("uat")|| (PropertiesFile.env).equals("sandbox")) {
+		/*	  System.setProperty("javax.net.ssl.trustStore", "C:\\Program Files\\Java\\jdk-11.0.2\\lib\\security\\cacerts");
 			    System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
 			    System.setProperty("javax.net.ssl.trustStoreType", "JKS");
 			    System.setProperty("javax.net.ssl.keyStore", "C:\\Users\\Emerson\\Downloads\\latest certificate\\finalcombined.pfx");
 			    System.setProperty("javax.net.ssl.keyStorePassword", "wso2carbon");
-			    System.setProperty("javax.net.ssl.keyStoreType", "PKCS12");
-			}
+			    System.setProperty("javax.net.ssl.keyStoreType", "PKCS12");*/
+		//	}
 				
 		
 		URL urlForGetRequest = new URL(PropertiesFile.getaccounturi+dfspname+"/accounts/"+accountid);
