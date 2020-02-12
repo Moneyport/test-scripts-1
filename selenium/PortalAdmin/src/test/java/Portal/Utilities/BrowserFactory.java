@@ -50,7 +50,7 @@ public class BrowserFactory {
 			options.setExperimentalOption("prefs", chromePrefs);
 			options.addArguments("--test-type");
 			options.addArguments("–-headless");
-			options.addArguments("--lang=en-US");
+			options.addArguments("--lang=en-UK");
 			options.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 			options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			options.setCapability(ChromeOptions.CAPABILITY, options);
