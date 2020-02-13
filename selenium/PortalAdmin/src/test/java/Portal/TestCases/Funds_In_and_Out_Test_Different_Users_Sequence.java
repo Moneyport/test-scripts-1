@@ -54,9 +54,9 @@ public class Funds_In_and_Out_Test_Different_Users_Sequence {
 		
 		FinancialMonitoringPage fmpage3 = PageFactory.initElements(browserFactory3.getDriver(), FinancialMonitoringPage.class);
 		
-	    settlementbalanceinitial1 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance")));
+	    settlementbalanceinitial1 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance")));
 			
-	    settlementbalanceinitial2 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+	    settlementbalanceinitial2 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 
 		homepage3.ClickOnSection("Settlement Windows");
 
@@ -69,9 +69,9 @@ public class Funds_In_and_Out_Test_Different_Users_Sequence {
 		Thread.sleep(2500);
 		
 		
-	    settlementbalancefinal1 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance")));
+	    settlementbalancefinal1 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance")));
 			
-	    settlementbalancefinal2 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+	    settlementbalancefinal2 = Math.abs(Float.parseFloat(fmpage3.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 		
 	    Assert.assertEquals(settlementbalancefinal1, (settlementbalanceinitial1 - 1));
 
@@ -110,9 +110,9 @@ public class Funds_In_and_Out_Test_Different_Users_Sequence {
 
         FinancialMonitoringPage fmpage4 = PageFactory.initElements(browserFactory4.getDriver(), FinancialMonitoringPage.class);
 		
-	    csettlementbalanceinitial1 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance")));
+	    csettlementbalanceinitial1 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance")));
 			
-	    csettlementbalanceinitial2 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+	    csettlementbalanceinitial2 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 
 		homepage4.ClickOnSection("Settlement Windows");
 
@@ -128,9 +128,9 @@ public class Funds_In_and_Out_Test_Different_Users_Sequence {
 	
 		Thread.sleep(2500);
 		  
-		csettlementbalancefinal1 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance")));
+		csettlementbalancefinal1 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance")));
 			
-		csettlementbalancefinal2 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+		csettlementbalancefinal2 = Math.abs(Float.parseFloat(fmpage4.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 			
 		Assert.assertEquals(csettlementbalancefinal1, (csettlementbalanceinitial1 - 1));
 

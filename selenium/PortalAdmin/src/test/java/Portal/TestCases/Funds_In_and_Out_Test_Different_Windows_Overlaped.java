@@ -54,10 +54,10 @@ public class Funds_In_and_Out_Test_Different_Windows_Overlaped {
 		
 		FinancialMonitoringPage fmpage7 = PageFactory.initElements(browserFactory7.getDriver(), FinancialMonitoringPage.class);
 		
-		settlbalanceinitial2 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+		settlbalanceinitial2 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 	
 		Thread.sleep(2500);
-		settlbalanceinitial3 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp3", "SETTLEMENT",  "XOF", "balance")));
+		settlbalanceinitial3 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp3", "SETTLEMENT",  "USD", "balance")));
 		
 
 		homepage7.ClickOnSection("Settlement Windows");
@@ -71,10 +71,10 @@ public class Funds_In_and_Out_Test_Different_Windows_Overlaped {
 		
 		Thread.sleep(2500);
 		
-		settlbalancefinal2 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+		settlbalancefinal2 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 		
 		Thread.sleep(2500);
-		settlbalancefinal3 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp3", "SETTLEMENT",  "XOF", "balance")));
+		settlbalancefinal3 = Math.abs(Float.parseFloat(fmpage7.GetParticipantAccounts("testfsp3", "SETTLEMENT",  "USD", "balance")));
 		
 	//	System.out.println("Checking 2 y 3 | "+Thread.currentThread().getId()+" "+ settlementbalancefinal2 + " & " + (settlementbalanceinitial2 - 1) );
 		//Assert.assertEquals(settlementbalancefinal2, (settlementbalanceinitial2 - 1));
@@ -117,10 +117,10 @@ public class Funds_In_and_Out_Test_Different_Windows_Overlaped {
 		
 		FinancialMonitoringPage fmpage8 = PageFactory.initElements(browserFactory8.getDriver(), FinancialMonitoringPage.class);
 		
-		settlbalanceinitial1 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance")));
+		settlbalanceinitial1 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance")));
 		
 		Thread.sleep(2500);
-		bsettlbalanceinitial2 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+		bsettlbalanceinitial2 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 
 		
 		homepage8.ClickOnSection("Settlement Windows");
@@ -134,10 +134,10 @@ public class Funds_In_and_Out_Test_Different_Windows_Overlaped {
 		
 		Thread.sleep(2500);
 
-         settlbalancefinal1 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "XOF", "balance")));
+         settlbalancefinal1 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp1", "SETTLEMENT",  "USD", "balance")));
 		
          Thread.sleep(2500);
-		bsettlbalancefinal2 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "XOF", "balance")));
+		bsettlbalancefinal2 = Math.abs(Float.parseFloat(fmpage8.GetParticipantAccounts("testfsp2", "SETTLEMENT",  "USD", "balance")));
 		
 		System.out.println("Checking FundsInOut_ClickOn_Settled_Window_8 |"+ settlbalancefinal1 + " & " + (settlbalanceinitial1 - 1) );
 		Assert.assertEquals(settlbalancefinal1, (settlbalanceinitial1 - 1));

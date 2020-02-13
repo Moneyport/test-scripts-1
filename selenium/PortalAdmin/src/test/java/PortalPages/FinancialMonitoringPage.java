@@ -806,18 +806,40 @@ float value2=0;
 	         
 			datepickers.get(0).click();
 			Thread.sleep(1000);
-			
-			
-			datepickers.get(0).sendKeys(month);
-			Thread.sleep(1000);
-			  
+
 			datepickers.get(0).sendKeys(day);
 			Thread.sleep(1000);
+			
+			datepickers.get(0).sendKeys(month);
+			Thread.sleep(1000);			  
 			 
 			datepickers.get(0).sendKeys(year);
 			
 		}
-
+		
+		public void FromDateCurrentWindowx(String datex) throws Exception {
+			String idx,day2,month2;
+			String day = datex.substring(8, 10);
+			day2=day.substring(0, 1);
+			if(day2.equals("0")) {
+				day = day.substring(1, 2);
+			}
+			String month = datex.substring(5, 7);
+			month2=month.substring(0, 1);
+			if(month2.equals("0")) {
+				month = month.substring(1, 2);
+			}
+			String year = datex.substring(0, 4);
+			 Robot robot = new Robot();  // Robot class throws AWT Exception	
+			datepickers.get(0).click();
+			Thread.sleep(1000);
+		//	datepickers.get(0).sendKeys(month);
+			Thread.sleep(1000);
+		//	datepickers.get(0).sendKeys(day);
+			Thread.sleep(1000);
+			datepickers.get(0).sendKeys(year);
+		}
+		
 		public void ToDateCurrentWindow(String datex) throws Exception {
 			String idx,day2x,month2x;
 			String dayx = datex.substring(8, 10);
@@ -840,10 +862,10 @@ float value2=0;
 			datepickers.get(1).click();
 			Thread.sleep(1000);
 			
-			datepickers.get(1).sendKeys(monthx);
-			Thread.sleep(1000);
-			 
 			datepickers.get(1).sendKeys(dayx);
+			Thread.sleep(1000);
+			
+			datepickers.get(1).sendKeys(monthx);
 			Thread.sleep(1000);
 			
 			datepickers.get(1).sendKeys(yearx);

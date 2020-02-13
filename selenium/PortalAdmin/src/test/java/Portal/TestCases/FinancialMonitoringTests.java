@@ -869,7 +869,7 @@ public class FinancialMonitoringTests extends BaseClass {
 		
 		System.out.println(apivalue);
 		
-		Assert.assertEquals(portalvalue, apivalue);
+		Assert.assertEquals(portalvalue, apivalue+"00");
 
 	}
 
@@ -904,7 +904,7 @@ public class FinancialMonitoringTests extends BaseClass {
 		
 		System.out.println(apivalue);
 		 
-		Assert.assertEquals(portalvalue, apivalue);
+		Assert.assertEquals(portalvalue, apivalue+"00");
 	
 	}
 
@@ -1194,7 +1194,7 @@ public class FinancialMonitoringTests extends BaseClass {
 		ScrollDown();
 		Wait(3);
 		fmpage.FromDateCurrentWindow("2018-10-10");
-		fmpage.ToDateCurrentWindow("2019-10-11");
+		fmpage.ToDateCurrentWindow("2020-10-11");
 		Thread.sleep(3000);
 		fmpage.assert_PreviousWindow_TransactionAverage();
 	
@@ -1575,13 +1575,14 @@ public class FinancialMonitoringTests extends BaseClass {
 
 		ScrollDown();
 
-		fmpage.FromDateCurrentWindow("2019-10-12");
+		Thread.sleep(2000);
+		fmpage.FromDateCurrentWindowx("4089-10-43");
+		fmpage.verifyPopUpNDC();
 		
-		Thread.sleep(3000);
-
-		fmpage.ToDateCurrentWindow("2019-10-10");
-		
-		fmpage.verify_No_SettlementFound();
+//		Thread.sleep(2000);
+//		fmpage.ToDateCurrentWindow("2020-10-10");
+//		fmpage.verifyPopUpNDC();
+		//fmpage.verify_No_SettlementFound();
 	}
 	
 	
