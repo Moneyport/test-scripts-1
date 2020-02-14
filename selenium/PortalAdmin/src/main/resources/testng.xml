@@ -76,7 +76,6 @@
 			<class name="Portal.TestCases.TransfersValidationTests">
 			   <methods> 
 				<include name ="Test_Transaction_Validation_Invalid_TransferID"/>
-				<include name ="Test_Transaction_Validation_Valid_TransferID"/> 
 				<include name ="Test_Transaction_Validation_Invalid_characters"/>
 				</methods> 
 			</class>
