@@ -293,12 +293,12 @@ public void AssertPage() {
 		datepickers.get(0).click();
 		Thread.sleep(1000);
 		
+		datepickers.get(0).sendKeys(day);
+		Thread.sleep(1000);
 		
 		datepickers.get(0).sendKeys(month);
 		Thread.sleep(1000);
 		  
-		datepickers.get(0).sendKeys(day);
-		Thread.sleep(1000);
 		 
 		datepickers.get(0).sendKeys(year);
 		
@@ -326,12 +326,13 @@ public void AssertPage() {
 		datepickers.get(1).click();
 		Thread.sleep(1000);
 		
-		datepickers.get(1).sendKeys(monthx);
-		Thread.sleep(1000);
-		 
 		datepickers.get(1).sendKeys(dayx);
 		Thread.sleep(1000);
 		
+		datepickers.get(1).sendKeys(monthx);
+		Thread.sleep(1000);
+		 
+
 		datepickers.get(1).sendKeys(yearx);
 		
 		

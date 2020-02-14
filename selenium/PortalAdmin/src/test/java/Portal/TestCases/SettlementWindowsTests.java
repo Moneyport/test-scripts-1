@@ -558,18 +558,31 @@ public class SettlementWindowsTests extends BaseClass {
 		homepage.ClickOnSection("Settlement Windows");
 
 		SettlementWindowsPage Settlement = PageFactory.initElements(driver, SettlementWindowsPage.class);
+		
+		SettlementWindowsPage setwinpage = PageFactory.initElements(driver, SettlementWindowsPage.class);
 
 		Settlement.AssertPage();
+		
+		for (int i=0;i<5;i++) {
+			
+		setwinpage.ClickOnSettlementWindow(setwinpage.GetFirstWindow("OPEN"));
 
-		Settlement.FromDate(PropertiesFile.frompaginationset);
+		setwinpage.ClickOnButton(WindowDetailButtons.CLOSEWINDOW);
+
+		RefreshPage();
+		
+		homepage.ClickOnSection("Settlement Windows");
+		}
+		
+		Settlement.ToDate(PropertiesFile.topaginationset);
 		Wait(2);
 
-		Settlement.ToDate(PropertiesFile.topaginationset);
+		Settlement.FromDate(PropertiesFile.frompaginationset);
 		Wait(2);
 		
 		ScrollDown();
 
-		Settlement.windowid_Count("25");
+		Settlement.windowid_Count("5");
 
 	}
 
@@ -661,12 +674,12 @@ public class SettlementWindowsTests extends BaseClass {
 
 		ScrollDown();
 
-		Settlement.windowid_Count("100");
+		Settlement.windowid_Count("5");
 
 		Settlement.scroll();
 
-		// Settlement.validate_pagination_links();
-		Settlement.navigation_Links(PropertiesFile.next_win, PropertiesFile.prev_win, PropertiesFile.last_win);
+//		 Settlement.validate_pagination_links();
+//		Settlement.navigation_Links(PropertiesFile.next_win, PropertiesFile.prev_win, PropertiesFile.last_win);
 	}
 
 	@Test
@@ -1183,15 +1196,15 @@ public class SettlementWindowsTests extends BaseClass {
 
 		setwinpage.ToDate(PropertiesFile.topaginationset);
 
-		setwinpage.Verify_Windowids_IsDisplayed(PropertiesFile.win1, PropertiesFile.win2);
+//		setwinpage.Verify_Windowids_IsDisplayed(PropertiesFile.win1, PropertiesFile.win2);
 
 		ScrollDown();
 
-		setwinpage.windowid_Count("100");
+		setwinpage.windowid_Count("5");
 
 		setwinpage.scroll();
 
-		setwinpage.navigation_Links(PropertiesFile.next_win, PropertiesFile.prev_win, PropertiesFile.last_win);
+//		setwinpage.navigation_Links(PropertiesFile.next_win, PropertiesFile.prev_win, PropertiesFile.last_win);
 
 	}
 
